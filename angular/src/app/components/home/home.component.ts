@@ -2,7 +2,6 @@ import { NgIf } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { signIn, signOut } from '@junobuild/core';
 import { AuthService } from '../../services/auth.service';
 import { DocsService } from '../../services/docs.service';
 import { ModalComponent } from '../modal/modal.component';
@@ -28,8 +27,10 @@ export class HomeComponent {
   readonly signedIn = this.authService.signedIn;
 
   // TODO: STEP_2_AUTH_SIGN_IN
+  readonly signIn = () => undefined;
   // readonly signIn = signIn;
   // TODO: STEP_3_AUTH_SIGN_OUT
+  readonly signOut = () => undefined;
   // readonly signOut = signOut;
 
   openModal() {

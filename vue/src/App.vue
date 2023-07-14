@@ -6,13 +6,13 @@ import { onMounted } from 'vue'
 import { initJuno } from '@junobuild/core'
 import Modal from '@/components/Modal.vue'
 
-onMounted(
-  async () =>
-      // TODO: STEP_1_INITIALIZATION
-      // await initJuno({
-      //   satelliteId: 'replace-satellite-id'
-      // })
-)
+// TODO: STEP_1_INITIALIZATION
+// onMounted(
+//   async () =>
+//       await initJuno({
+//          satelliteId: 'replace-satellite-id'
+//        })
+// )
 </script>
 
 <template>

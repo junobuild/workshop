@@ -5,7 +5,7 @@ import {
   signal,
   WritableSignal,
 } from '@angular/core';
-import { authSubscribe, User, type Unsubscribe } from '@junobuild/core';
+import { User } from '@junobuild/core';
 
 @Injectable({
   providedIn: 'root',

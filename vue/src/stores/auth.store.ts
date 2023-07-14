@@ -6,6 +6,7 @@ export const useAuthStore = defineStore('auth', () => {
   const user: Ref<User | null | undefined> = ref(undefined)
 
   // TODO: STEP_4_AUTH_SUBSCRIBE
+  const unsubscribe = () => undefined
   // const unsubscribe = authSubscribe((u) => (user.value = u))
 
   return { user, unsubscribe }

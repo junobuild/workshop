@@ -1,11 +1,12 @@
 import { signOut } from "@junobuild/core";
 
 export const Logout = () => {
+  //TODO: STEP_3_AUTH_SIGN_OUT
+  // onClick={signOut}
+
   return (
     <button
       type="button"
-      {/* TODO: STEP_3_AUTH_SIGN_OUT */}
-      {/*  onClick={signOut} */}
       className="text-sm rounded-md mt-16 px-3.5 py-1.5 text-base font-semibold leading-7 hover:bg-grey-500 hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-600"
     >
       <div className="flex items-center justify-center gap-1.5">

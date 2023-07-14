@@ -6,13 +6,13 @@ import { Auth } from "./Auth";
 import { useEffect } from "react";
 
 function App() {
-  useEffect(() => {
-    (async () =>
-        // TODO: STEP_1_INITIALIZATION
-        // await initJuno({
-        //   satelliteId: 'replace-satellite-id'
-        // })))();
-  }, []);
+  // TODO: STEP_1_INITIALIZATION
+  // useEffect(() => {
+  //   (async () =>
+  //     await initJuno({
+  //       satelliteId: "replace-satellite-id",
+  //     }))();
+  // }, []);
 
   return (
     <>

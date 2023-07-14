@@ -3,10 +3,11 @@ import { signOut } from '@junobuild/core'
 </script>
 
 <template>
+  <!-- TODO: STEP_3_AUTH_SIGN_OUT -->
+  <!-- @click="signOut" -->
+
   <button
     type="button"
-    <!-- TODO: STEP_3_AUTH_SIGN_OUT -->
-    <!-- @click="signOut" -->
     class="text-sm rounded-md mt-16 px-3.5 py-1.5 text-base font-semibold leading-7 hover:bg-grey-500 hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grey-600"
   >
     <div class="flex items-center justify-center gap-1.5">

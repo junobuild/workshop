@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { initJuno } from '@junobuild/core';
 import { HomeComponent } from './components/home/home.component';
 
 @Component({
