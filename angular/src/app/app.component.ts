@@ -14,8 +14,6 @@ export class AppComponent implements OnInit {
   title = 'diary';
 
   async ngOnInit() {
-    await initJuno({
-      satelliteId: 'f62k6-laaaa-aaaal-acq7q-cai',
-    });
+    STEP_1_INITIALIZATION
   }
 }
