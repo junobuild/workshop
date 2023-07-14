@@ -25,7 +25,8 @@ By following the steps below and replacing the provided snippet, we will be able
 1. [Initialization](#initialization)
 2. [Authentication](#authentication)
 3. [Storing Document](#storing-documents)
-4. [Lising Document](#listing-documents)
+4. [Listing Document](#listing-documents)
+5. [Uploading Files](#uploading-files)
 
 ---
 
@@ -116,5 +117,40 @@ To fetch the list of documents saved on the blockchain, we can use the `listDocs
 ```javascript
 const { items } = await listDocs({
   collection: "notes",
+});
+```
+
+---
+
+### Uploading Files
+
+As for the documents, to upload assets we will need first to create a collection in the “Storage”. We can be name it “images”.
+
+Once our collection is set, we can upload a file on chain using the `uploadFile` function.
+
+> TODO: find and replace STEP_7_UPLOAD_FILE
+
+```javascript
+const { downloadUrl } = await uploadFile({
+    collection: "images",
+    data: file,
+    filename,
+});
+```
+
+In this particular workshop, we also want to save a reference within the document to its related asset.
+
+> TODO: find and replace STEP_8_ADD_REFERENCE
+
+```javascript
+await setDoc({
+    collection: "notes",
+    doc: {
+        key,
+        data: {
+            text: inputText,
+            ...(url !== undefined && { url }) // <--- We add this reference
+        },
+    },
 });
 ```

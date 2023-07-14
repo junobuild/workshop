@@ -37,11 +37,13 @@ const add = async () => {
     if (file.value !== undefined) {
       const filename = `${user.value.key}-${file.value.name}`
 
-      const { downloadUrl } = await uploadFile({
-        collection: 'images',
-        data: file.value,
-        filename
-      })
+      // TODO: STEP_7_UPLOAD_FILE
+      const downloadUrl = undefined;
+      // const { downloadUrl } = await uploadFile({
+      //   collection: 'images',
+      //   data: file.value,
+      //   filename
+      // })
 
       url = downloadUrl
     }
@@ -59,6 +61,7 @@ const add = async () => {
     //   }
     // })
 
+    // TODO: STEP_8_ADD_REFERENCE
     // ...(url !== undefined && { url })
 
     setShowModal(false)

@@ -70,11 +70,13 @@ export class ModalComponent {
     if (this.file !== undefined) {
       const filename = `${user.key}-${this.file.name}`;
 
-      const { downloadUrl } = await uploadFile({
-        collection: 'images',
-        data: this.file,
-        filename,
-      });
+      // TODO: STEP_7_UPLOAD_FILE
+      const downloadUrl = undefined;
+      // const { downloadUrl } = await uploadFile({
+      //   collection: 'images',
+      //   data: this.file,
+      //   filename,
+      // });
 
       url = downloadUrl;
     }
@@ -92,6 +94,7 @@ export class ModalComponent {
     //   },
     // });
 
+    // TODO: STEP_8_ADD_REFERENCE
     // ...(url !== undefined && { url }),
   }
 }

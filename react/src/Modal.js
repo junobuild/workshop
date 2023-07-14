@@ -35,11 +35,13 @@ export const Modal = () => {
       if (file !== undefined) {
         const filename = `${user.key}-${file.name}`;
 
-        const { downloadUrl } = await uploadFile({
-          collection: "images",
-          data: file,
-          filename,
-        });
+        // TODO: STEP_7_UPLOAD_FILE
+        const downloadUrl = undefined;
+        // const { downloadUrl } = await uploadFile({
+        //   collection: "images",
+        //   data: file,
+        //   filename,
+        // });
 
         url = downloadUrl;
       }
@@ -57,6 +59,7 @@ export const Modal = () => {
       //   },
       // });
 
+      // TODO: STEP_8_ADD_REFERENCE
       // ...(url !== undefined && { url }),
 
       setShowModal(false);
