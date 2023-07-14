@@ -8,7 +8,10 @@ import { useEffect } from "react";
 function App() {
   useEffect(() => {
     (async () =>
-        STEP_1_INITIALIZATION))();
+        // TODO: STEP_1_INITIALIZATION
+        // await initJuno({
+        //   satelliteId: 'replace-satellite-id'
+        // })))();
   }, []);
 
   return (

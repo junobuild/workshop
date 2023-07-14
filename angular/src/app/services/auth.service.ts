@@ -5,8 +5,7 @@ import {
   signal,
   WritableSignal,
 } from '@angular/core';
-import { authSubscribe, User } from '@junobuild/core';
-import {Unsubscribe} from "@junobuild/core/dist/types/types/subscription.types";
+import { authSubscribe, User, type Unsubscribe } from '@junobuild/core';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +17,7 @@ export class AuthService {
   );
 
   constructor() {
-    authSubscribe((user) => this.user.set(user));
+    // TODO: STEP_4_AUTH_SUBSCRIBE
+    // authSubscribe((user) => this.user.set(user));
   }
 }

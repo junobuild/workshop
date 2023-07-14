@@ -27,8 +27,10 @@ export class HomeComponent {
   private docsService = inject(DocsService);
   readonly signedIn = this.authService.signedIn;
 
-  readonly signOut = signOut;
-  readonly signIn = signIn;
+  // TODO: STEP_2_AUTH_SIGN_IN
+  // readonly signIn = signIn;
+  // TODO: STEP_3_AUTH_SIGN_OUT
+  // readonly signOut = signOut;
 
   openModal() {
     let dialogRef = this.dialog.open(ModalComponent, {

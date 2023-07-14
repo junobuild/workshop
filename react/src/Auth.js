@@ -9,7 +9,8 @@ export const Auth = ({ children }) => {
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
-    const sub = authSubscribe((user) => setUser(user));
+    // TODO: STEP_4_AUTH_SUBSCRIBE
+    // const sub = authSubscribe((user) => setUser(user));
 
     return () => sub();
   }, []);

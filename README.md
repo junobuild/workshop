@@ -22,7 +22,8 @@ By following the steps below and replacing the provided snippet, we will be able
 
 ### Table of contents
 
-1. [Initialization](#1-initialization)
+1. [Initialization](#initialization)
+2. [Authentication](#authentication)
 
 ---
 
@@ -45,3 +46,38 @@ await initJuno({
     satelliteId: 'replace-satellite-id'
 })
 ```
+
+---
+
+### Authentication
+
+To securely identify users anonymously, they will need to sign in.
+
+> TODO: find and replace STEP_2_AUTH_SIGN_IN
+
+```javascript
+import { signIn } from "@junobuild/core";
+
+await signIn();
+```
+
+Likewise, users should be able to sign out.
+
+> TODO: find and replace STEP_3_AUTH_SIGN_OUT
+
+```javascript
+import { signOut } from "@junobuild/core";
+
+await signOut();
+```
+
+To get to know the user’s state, Juno provides an observable function called `authSubscribe()`. We can use it as many times as required, but I find it convenient to subscribe to it at the top of an app.
+
+> TODO: find and replace STEP_4_AUTH_SUBSCRIBE
+
+```typescript
+import { authSubscribe, type User } from '@junobuild/core';
+
+const sub = authSubscribe((user: User | null) => console.log(user));
+```
+
