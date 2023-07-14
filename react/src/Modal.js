@@ -46,16 +46,18 @@ export const Modal = () => {
 
       const key = nanoid();
 
-      await setDoc({
-        collection: "notes",
-        doc: {
-          key,
-          data: {
-            text: inputText,
-            ...(url !== undefined && { url }),
-          },
-        },
-      });
+      // TODO: STEP_5_SET_DOC
+      // await setDoc({
+      //   collection: "notes",
+      //   doc: {
+      //     key,
+      //     data: {
+      //       text: inputText,
+      //     },
+      //   },
+      // });
+
+      // ...(url !== undefined && { url }),
 
       setShowModal(false);
 

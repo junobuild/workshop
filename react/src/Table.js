@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { listDocs } from "@junobuild/core";
 import { AuthContext } from "./Auth";
-import { Delete } from "./Delete";
 
 export const Table = () => {
   const { user } = useContext(AuthContext);
@@ -16,10 +15,11 @@ export const Table = () => {
   }, []);
 
   const list = async () => {
-    const { items } = await listDocs({
-      collection: "notes",
-      filter: {},
-    });
+    // TODO: STEP_6_LIST_DOCS
+    const items = [];
+    // const { items } = await listDocs({
+    //   collection: "notes",
+    // });
 
     setItems(items);
   };
@@ -76,8 +76,6 @@ export const Table = () => {
                       </svg>
                     </a>
                   ) : undefined}
-
-                  <Delete item={item} reload={list} />
                 </div>
               </div>
             );

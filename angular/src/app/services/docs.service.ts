@@ -33,9 +33,11 @@ export class DocsService {
       return;
     }
 
-    const { items } = await listDocs<Entry>({
-      collection: 'notes',
-    });
+    // TODO: STEP_6_LIST_DOCS
+    const items: Doc<Entry>[] = [];
+    // const { items } = await listDocs<Entry>({
+    //   collection: 'notes',
+    // });
 
     this.docs.set(items);
   }

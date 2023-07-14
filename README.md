@@ -24,6 +24,8 @@ By following the steps below and replacing the provided snippet, we will be able
 
 1. [Initialization](#initialization)
 2. [Authentication](#authentication)
+3. [Storing Document](#storing-documents)
+4. [Lising Document](#listing-documents)
 
 ---
 
@@ -81,3 +83,38 @@ import { authSubscribe, type User } from '@junobuild/core';
 const sub = authSubscribe((user: User | null) => console.log(user));
 ```
 
+---
+
+### Storing Documents
+
+Storing data on the blockchain with Juno is done through a feature called “Datastore”. Follow the instructions in the documentation to create a collection, which can be named accordingly (“notes”).
+
+Once our collection is created, we can persist data on the blockchain using the `setDoc` function.
+
+> TODO: find and replace STEP_5_SET_DOC
+ 
+```javascript
+await setDoc({
+    collection: "notes",
+    doc: {
+        key,
+        data: {
+            text: inputText,
+        },
+    },
+});
+```
+
+---
+
+### Listing Documents
+
+To fetch the list of documents saved on the blockchain, we can use the `listDocs` function.
+
+> TODO: find and replace STEP_6_LIST_DOCS
+ 
+```javascript
+const { items } = await listDocs({
+  collection: "notes",
+});
+```

@@ -48,16 +48,18 @@ const add = async () => {
 
     const key = nanoid()
 
-    await setDoc({
-      collection: 'notes',
-      doc: {
-        key,
-        data: {
-          text: inputText.value,
-          ...(url !== undefined && { url })
-        }
-      }
-    })
+    // TODO: STEP_5_SET_DOC
+    // await setDoc({
+    //   collection: 'notes',
+    //   doc: {
+    //     key,
+    //     data: {
+    //       text: inputText.value,
+    //     }
+    //   }
+    // })
+
+    // ...(url !== undefined && { url })
 
     setShowModal(false)
 

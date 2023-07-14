@@ -5,10 +5,11 @@ import { onMounted, onUnmounted, ref } from 'vue'
 const items = ref([])
 
 const list = async () => {
-  const { items: data } = await listDocs({
-    collection: 'notes',
-    filter: {}
-  })
+  // TODO: STEP_6_LIST_DOCS
+  const data = [];
+  // const { items: data } = await listDocs({
+  //   collection: 'notes',
+  // })
 
   items.value = data
 }
