@@ -27,6 +27,7 @@ By following the steps below and replacing the provided snippet, we will be able
 3. [Storing Document](#storing-documents)
 4. [Listing Document](#listing-documents)
 5. [Uploading Files](#uploading-files)
+6. [Deployment](#deployment)
 
 ---
 
@@ -154,3 +155,29 @@ await setDoc({
     },
 });
 ```
+
+---
+
+### Deployment
+
+After we have developed and built our application, we can launch it.
+
+To do this, we need the Juno CLI.
+
+```bash
+npm i -g @junobuild/cli
+```
+
+Once the installation is complete, we log in to grant access from our terminal to our satellite.
+
+```bash
+juno login
+```
+
+Finally, we deploy our app.
+
+```bash
+juno deploy
+```
+
+Congratulations! Your app is on chain 🎉.
