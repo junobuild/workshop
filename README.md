@@ -18,11 +18,15 @@ We are developing a note-taking app and the core functionality is already functi
 
 By following the steps below and replacing the provided snippet, we will be able to implement the app and learn about building on Web3 simultaneously.
 
-### Steps
+---
 
-- [1. Initialization](#1-initialization)
+### Table of contents
 
-### 1. Initialization
+1. [Initialization](#1-initialization)
+
+---
+
+### Initialization
 
 Before we can integrate Juno into an app, we’ll need to create a satellite. This process is explained in detail in the [documentation](https://juno.build/docs/add-juno-to-an-app/create-a-satellite).
 
