@@ -36,6 +36,8 @@ By following the steps below and replacing the provided snippet, we will be able
 
 Before we can integrate Juno into an app, we’ll need to create a satellite. This process is explained in detail in the [documentation](https://juno.build/docs/add-juno-to-an-app/create-a-satellite).
 
+> New developers will also need to sign in to Juno's [console](https://console.juno.build) and may even need to create an Internet Identity.
+
 Moreover, you also need to install the SDK.
 
 ```bash
