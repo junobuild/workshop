@@ -8,7 +8,7 @@ Juno being framework-agnostic, the material is provided in various flavors. Afte
 
 ```bash
 git clone https://github.com/buildwithjuno/workshop
-cd workshop
+cd workshops
 cd react|angular|vue
 npm ci
 ```
