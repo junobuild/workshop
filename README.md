@@ -177,6 +177,12 @@ Once the installation is complete, we log in to grant access from our terminal t
 juno login
 ```
 
+To inform the CLI about which satellites our application should be deployed to, we execute the initialization command once:
+
+```bash
+juno init
+```
+
 Finally, we deploy our app.
 
 ```bash
