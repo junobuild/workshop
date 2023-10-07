@@ -7,7 +7,7 @@ This repository provides code samples and instructions that can be used to guide
 Juno being framework-agnostic, the material is provided in various flavors. After cloning the repo, choose the framework that best suits your needs.
 
 ```bash
-git clone https://github.com/buildwithjuno/workshops
+git clone https://github.com/junobuild/workshops
 cd workshops
 cd react|angular|vue
 npm ci
