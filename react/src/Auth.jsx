@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { authSubscribe } from "@junobuild/core";
 import { Login } from "./Login";
 import { Logout } from "./Logout";
+import PropTypes from "prop-types";
 
 export const AuthContext = createContext();
 
@@ -29,4 +30,8 @@ export const Auth = ({ children }) => {
       )}
     </AuthContext.Provider>
   );
+};
+
+Auth.propTypes = {
+  children: PropTypes.node.isRequired,
 };
