@@ -9,8 +9,8 @@ This repository provides code samples and instructions to guide attendees in dis
 Clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/junobuild/workshops
-cd workshops
+git clone https://github.com/junobuild/workshop
+cd workshop
 npm ci
 ```
 
