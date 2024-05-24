@@ -1,8 +1,8 @@
-import { createContext, useEffect, useState } from "react";
 import { authSubscribe } from "@junobuild/core";
+import PropTypes from "prop-types";
+import { createContext, useEffect, useState } from "react";
 import { Login } from "./Login";
 import { Logout } from "./Logout";
-import PropTypes from "prop-types";
 
 export const AuthContext = createContext();
 

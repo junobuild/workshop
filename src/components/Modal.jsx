@@ -1,9 +1,9 @@
-import { useContext, useEffect, useRef, useState } from "react";
 import { setDoc, uploadFile } from "@junobuild/core";
-import { AuthContext } from "./Auth";
 import { nanoid } from "nanoid";
-import { Button } from "./Button";
+import { useContext, useEffect, useRef, useState } from "react";
+import { AuthContext } from "./Auth";
 import { Backdrop } from "./Backdrop";
+import { Button } from "./Button";
 
 export const Modal = () => {
   const [showModal, setShowModal] = useState(false);
@@ -111,7 +111,7 @@ export const Modal = () => {
         border-black border-[3px] rounded-sm bg-white shadow-[5px_5px_0px_rgba(0,0,0,1)]
         focus:outline-none
       "
-                rows="7"
+                rows={7}
                 placeholder="Your diary entry"
                 onChange={(e) => {
                   setInputText(e.target.value);
@@ -124,7 +124,7 @@ export const Modal = () => {
                 <div>
                   <button
                     aria-label="Attach a file to the entry"
-                    onClick={() => uploadElement.current.click()}
+                    onClick={() => uploadElement?.current?.click()}
                     className="flex gap-2 items-center hover:text-lavender-blue-600 active:text-lavender-blue-400"
                   >
                     <svg
