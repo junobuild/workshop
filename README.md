@@ -63,7 +63,7 @@ Then, enable the initialization of the library within the application.
 > TODO: find and replace STEP_2_INITIALIZATION
 
 ```javascript
-await initJuno();
+await initSatellite();
 ```
 
 ---

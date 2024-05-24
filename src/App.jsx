@@ -9,7 +9,7 @@ import { Table } from "./components/Table";
 function App() {
   // TODO: STEP_2_INITIALIZATION
   // useEffect(() => {
-  //   (async () => await initJuno())();
+  //   (async () => await initSatellite())();
   // }, []);
 
   return (
