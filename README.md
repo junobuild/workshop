@@ -2,7 +2,7 @@
 
 ![A screenshot of the example developed during the workshop](https://raw.githubusercontent.com/junobuild/create-juno/main/screenshots/screenshot-example.png)
 
-This repository provides code samples and instructions that can be used to guide attendees in discovering Juno during workshops.
+This repository provides code samples and instructions to guide attendees in discovering Juno during a workshop.
 
 ## Getting Started
 
