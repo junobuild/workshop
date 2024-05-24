@@ -7,12 +7,9 @@ import { Modal } from "./components/Modal";
 import { Table } from "./components/Table";
 
 function App() {
-  // TODO: STEP_1_INITIALIZATION
+  // TODO: STEP_2_INITIALIZATION
   // useEffect(() => {
-  //   (async () =>
-  //     await initJuno({
-  //       satelliteId: "replace-satellite-id",
-  //     }))();
+  //   (async () => await initJuno())();
   // }, []);
 
   return (

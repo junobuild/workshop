@@ -1,21 +1,22 @@
-# Workshops Materials
+# Juno: Workshop
+
+![A screenshot of the example developed during the workshop](https://raw.githubusercontent.com/junobuild/create-juno/main/screenshots/screenshot-example.png)
 
 This repository provides code samples and instructions that can be used to guide attendees in discovering Juno during workshops.
 
 ## Getting Started
 
-Juno being framework-agnostic, the material is provided in various flavors. After cloning the repo, choose the framework that best suits your needs.
+Clone the repository and install the dependencies:
 
 ```bash
 git clone https://github.com/junobuild/workshops
 cd workshops
-cd react|angular|vue
 npm ci
 ```
 
 ## Workshop
 
-We are developing a note-taking app and the core functionality is already functional. However, we still need to integrate Juno, which we plan to implement during the workshop.
+We are developing a note-taking app, and the core functionality is already in place. However, we still need to integrate Juno, which we plan to implement during the workshop.
 
 By following the steps below and replacing the provided snippet, we will be able to implement the app and learn about building on Web3 simultaneously.
 
@@ -34,24 +35,35 @@ By following the steps below and replacing the provided snippet, we will be able
 
 ### Initialization
 
-Before we can integrate Juno into an app, we’ll need to create a satellite. This process is explained in detail in the [documentation](https://juno.build/docs/add-juno-to-an-app/create-a-satellite).
+Before we can integrate Juno into the app, we’ll need to create a satellite. This process is explained in detail in the [documentation](https://juno.build/docs/add-juno-to-an-app/create-a-satellite).
 
 > New developers will also need to sign in to Juno's [console](https://console.juno.build) and may even need to create an Internet Identity.
 
-Moreover, you also need to install the SDK.
+Once the satellite is created, we can initialize Juno with its ID.
 
-```bash
-npm i @junobuild/core
-```
+First, configure the satellite ID in the `juno.config.js` file.
 
-After completing both of these steps, we can initialize Juno with your satellite ID.
-
-> TODO: find and replace STEP_1_INITIALIZATION
+> TODO: find and replace STEP_1_CONFIGURATION
 
 ```javascript
-await initJuno({
-    satelliteId: 'replace-satellite-id'
-})
+import { defineConfig } from "@junobuild/config";
+
+/** @type {import('@junobuild/config').JunoConfig} */
+export default defineConfig({
+  satellite: {
+    // TODO: STEP_1_CONFIGURATION
+    id: "replace-satellite-id",
+    source: "dist",
+  },
+});
+```
+
+Then, enable the initialization of the library within the application.
+
+> TODO: find and replace STEP_2_INITIALIZATION
+
+```javascript
+await initJuno();
 ```
 
 ---
@@ -60,7 +72,7 @@ await initJuno({
 
 To securely identify users anonymously, they will need to sign in.
 
-> TODO: find and replace STEP_2_AUTH_SIGN_IN
+> TODO: find and replace STEP_3_AUTH_SIGN_IN
 
 ```javascript
 import { signIn } from "@junobuild/core";
@@ -68,24 +80,24 @@ import { signIn } from "@junobuild/core";
 await signIn();
 ```
 
-Likewise, users should be able to sign out.
-
-> TODO: find and replace STEP_3_AUTH_SIGN_OUT
-
-```javascript
-import { signOut } from "@junobuild/core";
-
-await signOut();
-```
-
 To get to know the user’s state, Juno provides an observable function called `authSubscribe()`. We can use it as many times as required, but I find it convenient to subscribe to it at the top of an app.
 
 > TODO: find and replace STEP_4_AUTH_SUBSCRIBE
 
 ```typescript
-import { authSubscribe, type User } from '@junobuild/core';
+import { authSubscribe, type User } from "@junobuild/core";
 
 const sub = authSubscribe((user: User | null) => console.log(user));
+```
+
+Users should obviously also be able to sign out.
+
+> TODO: find and replace STEP_5_AUTH_SIGN_OUT
+
+```javascript
+import { signOut } from "@junobuild/core";
+
+await signOut();
 ```
 
 ---
@@ -96,17 +108,17 @@ Storing data on the blockchain with Juno is done through a feature called “Dat
 
 Once our collection is created, we can persist data on the blockchain using the `setDoc` function.
 
-> TODO: find and replace STEP_5_SET_DOC
+> TODO: find and replace STEP_6_SET_DOC
 
 ```javascript
 await setDoc({
-    collection: "notes",
-    doc: {
-        key,
-        data: {
-            text: inputText,
-        },
+  collection: "notes",
+  doc: {
+    key,
+    data: {
+      text: inputText,
     },
+  },
 });
 ```
 
@@ -116,7 +128,7 @@ await setDoc({
 
 To fetch the list of documents saved on the blockchain, we can use the `listDocs` function.
 
-> TODO: find and replace STEP_6_LIST_DOCS
+> TODO: find and replace STEP_7_LIST_DOCS
 
 ```javascript
 const { items } = await listDocs({
@@ -132,30 +144,30 @@ As for the documents, to upload assets we will need first to create a collection
 
 Once our collection is set, we can upload a file on chain using the `uploadFile` function.
 
-> TODO: find and replace STEP_7_UPLOAD_FILE
+> TODO: find and replace STEP_8_UPLOAD_FILE
 
 ```javascript
 const { downloadUrl } = await uploadFile({
-    collection: "images",
-    data: file,
-    filename,
+  collection: "images",
+  data: file,
+  filename,
 });
 ```
 
 In this particular workshop, we also want to save a reference within the document to its related asset.
 
-> TODO: find and replace STEP_8_ADD_REFERENCE
+> TODO: find and replace STEP_9_ADD_REFERENCE
 
 ```javascript
 await setDoc({
-    collection: "notes",
-    doc: {
-        key,
-        data: {
-            text: inputText,
-            ...(url !== undefined && { url }) // <--- We add this reference
-        },
+  collection: "notes",
+  doc: {
+    key,
+    data: {
+      text: inputText,
+      ...(url !== undefined && { url }), // <--- We add this reference
     },
+  },
 });
 ```
 
@@ -165,7 +177,7 @@ await setDoc({
 
 After we have developed and built our application, we can launch it.
 
-To do this, we need the Juno CLI.
+We recommend using [GitHub Actions](https://juno.build/docs/guides/github-actions) to continuously deploy real applications, but for the sake of this workshop, we will do this manually. That means we need to install the Juno CLI.
 
 ```bash
 npm i -g @junobuild/cli
@@ -177,16 +189,10 @@ Once the installation is complete, we log in to grant access from our terminal t
 juno login
 ```
 
-To inform the CLI about which satellites our application should be deployed to, we execute the initialization command once:
-
-```bash
-juno init
-```
-
-Finally, we deploy our app.
+Finally, we deploy our project.
 
 ```bash
 juno deploy
 ```
 
-Congratulations! Your app is on chain 🎉.
+Congratulations! Your dApp has been launched on chain 🎉.

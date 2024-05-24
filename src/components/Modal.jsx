@@ -38,7 +38,7 @@ export const Modal = () => {
       if (file !== undefined) {
         const filename = `${user.key}-${file.name}`;
 
-        // TODO: STEP_7_UPLOAD_FILE
+        // TODO: STEP_8_UPLOAD_FILE
         const downloadUrl = undefined;
         // const { downloadUrl } = await uploadFile({
         //   collection: "images",
@@ -51,7 +51,7 @@ export const Modal = () => {
 
       const key = nanoid();
 
-      // TODO: STEP_5_SET_DOC
+      // TODO: STEP_6_SET_DOC
       // await setDoc({
       //   collection: "notes",
       //   doc: {
@@ -62,7 +62,7 @@ export const Modal = () => {
       //   },
       // });
 
-      // TODO: STEP_8_ADD_REFERENCE
+      // TODO: STEP_9_ADD_REFERENCE
       // ...(url !== undefined && { url }),
 
       setShowModal(false);
