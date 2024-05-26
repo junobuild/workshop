@@ -5,6 +5,7 @@ import { Background } from "./components/Background";
 import { Footer } from "./components/Footer";
 import { Modal } from "./components/Modal";
 import { Table } from "./components/Table";
+import { Wallet } from "./components/Wallet";
 
 function App() {
   useEffect(() => {
@@ -32,6 +33,8 @@ function App() {
           </p>
 
           <Auth>
+            <Wallet />
+
             <Table />
 
             <Modal />

@@ -10,15 +10,15 @@ export default defineDevConfig(() => ({
           read: "managed",
           write: "managed",
           memory: "storage",
-          mutablePermissions: false
+          mutablePermissions: false,
         },
         {
-            collection: "profiles",
-            read: "managed",
-            write: "managed",
-            memory: "storage",
-            mutablePermissions: false
-          },
+          collection: "profiles",
+          read: "managed",
+          write: "managed",
+          memory: "storage",
+          mutablePermissions: false,
+        },
       ],
       storage: [
         {
@@ -26,8 +26,8 @@ export default defineDevConfig(() => ({
           read: "managed",
           write: "managed",
           memory: "storage",
-          mutablePermissions: false
-        }
+          mutablePermissions: false,
+        },
       ],
     },
     controllers: [],
