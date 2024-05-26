@@ -12,6 +12,13 @@ export default defineDevConfig(() => ({
           memory: "storage",
           mutablePermissions: false
         },
+        {
+            collection: "profiles",
+            read: "managed",
+            write: "managed",
+            memory: "storage",
+            mutablePermissions: false
+          },
       ],
       storage: [
         {
