@@ -7,10 +7,9 @@ import { Modal } from "./components/Modal";
 import { Table } from "./components/Table";
 
 function App() {
-  // TODO: STEP_2_INITIALIZATION
-  // useEffect(() => {
-  //   (async () => await initSatellite())();
-  // }, []);
+  useEffect(() => {
+    (async () => await initSatellite())();
+  }, []);
 
   return (
     <>
