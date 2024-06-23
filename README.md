@@ -41,7 +41,7 @@ Before we can integrate Juno into the app, we’ll need to create a satellite. T
 
 Once the satellite is created, we can initialize Juno with its ID.
 
-First, configure the satellite ID in the `juno.config.js` file.
+First, configure the satellite ID in the `juno.config.mjs` file.
 
 > TODO: find and replace STEP_1_CONFIGURATION
 
