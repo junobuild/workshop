@@ -1,6 +1,10 @@
 mod http;
+mod http_request;
+mod http_response;
 
+use crate::http::transform_response;
 use http::query;
+use ic_cdk::api::management_canister::http_request::{HttpResponse, TransformArgs};
 use junobuild_macros::{
     assert_delete_asset, assert_delete_doc, assert_set_doc, assert_upload_asset, on_delete_asset,
     on_delete_doc, on_delete_many_assets, on_delete_many_docs, on_set_doc, on_set_many_docs,
@@ -23,9 +27,10 @@ struct NotesData {
 
 #[on_set_doc(collections = ["notes"])]
 async fn on_set_doc(context: OnSetDocContext) -> Result<(), String> {
-    let image_url = query().await?;
-
     let mut data: NotesData = decode_doc_data(&context.data.data.after.data)?;
+
+    let image_url = query(&context.data.key, &data.text).await?;
+
     data.url = Some(image_url);
 
     let encode_data = encode_doc_data(&data)?;
@@ -94,6 +99,11 @@ fn assert_upload_asset(_context: AssertUploadAssetContext) -> Result<(), String>
 #[assert_delete_asset]
 fn assert_delete_asset(_context: AssertDeleteAssetContext) -> Result<(), String> {
     Ok(())
+}
+
+#[ic_cdk_macros::query]
+fn transform(raw: TransformArgs) -> HttpResponse {
+    transform_response(raw)
 }
 
 include_satellite!();
