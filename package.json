@@ -11,25 +11,25 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@junobuild/core": "^0.0.51",
+    "@junobuild/core": "^0.0.58",
     "nanoid": "^5.0.7",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@junobuild/config": "^0.0.8",
-    "@junobuild/vite-plugin": "^0.0.14",
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
-    "@vitejs/plugin-react": "^4.2.1",
-    "autoprefixer": "^10.4.19",
+    "@junobuild/config": "^0.0.14",
+    "@junobuild/vite-plugin": "^0.0.16",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.20",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
-    "postcss": "^8.4.38",
-    "prettier": "^3.2.5",
-    "tailwindcss": "^3.4.3",
-    "vite": "^5.2.0"
+    "postcss": "^8.4.41",
+    "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.10",
+    "vite": "^5.4.1"
   }
 }
