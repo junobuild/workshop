@@ -1,10 +1,10 @@
-export const Logout = () => {
-  //TODO: STEP_5_AUTH_SIGN_OUT
-  // onClick={signOut}
+import { signOut } from "@junobuild/core";
 
+export const Logout = () => {
   return (
     <button
       type="button"
+      onClick={signOut}
       className="hover:text-lavender-blue-500 active:text-lavender-blue-400 mt-24 flex items-center gap-2 dark:text-white"
     >
       <svg

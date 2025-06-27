@@ -15,7 +15,7 @@ export const Table = () => {
   }, []);
 
   const list = async () => {
-    // TODO: STEP_7_LIST_DOCS
+    // TODO: STEP_LIST_DOCS
     const items = [];
     // const { items } = await listDocs({
     //   collection: "notes",
