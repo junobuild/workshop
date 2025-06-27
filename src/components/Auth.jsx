@@ -1,4 +1,3 @@
-import { authSubscribe } from "@junobuild/core";
 import PropTypes from "prop-types";
 import { createContext, useEffect, useState } from "react";
 import { Login } from "./Login";

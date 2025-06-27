@@ -1,4 +1,3 @@
-import { setDoc, uploadFile } from "@junobuild/core";
 import { nanoid } from "nanoid";
 import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "./Auth";
@@ -20,8 +19,8 @@ export const Modal = () => {
   }, [showModal, inputText, user]);
 
   const reload = () => {
-    let event = new Event("reload");
-    window.dispatchEvent(event);
+    const $event = new Event("reload");
+    window.dispatchEvent($event);
   };
 
   const add = async () => {
@@ -75,9 +74,22 @@ export const Modal = () => {
     setProgress(false);
   };
 
+  const resetFileInput = () => {
+    if (uploadElement.current !== null) {
+      uploadElement.current.value = "";
+    }
+
+    setFile(undefined);
+  };
+
   return (
     <>
-      <Button onClick={() => setShowModal(true)}>
+      <Button
+        onClick={() => {
+          resetFileInput();
+          setShowModal(true);
+        }}
+      >
         Add an entry{" "}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -93,24 +105,12 @@ export const Modal = () => {
       {showModal ? (
         <>
           <div
-            className="fixed inset-0 z-50 p-16 md:px-24 md:py-44 animate-fade"
+            className="animate-fade fixed inset-0 z-50 p-16 md:px-24 md:py-44"
             role="dialog"
           >
             <div className="relative w-full max-w-xl">
               <textarea
-                className="
-        form-control
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        m-0
-        resize-none
-        border-black border-[3px] rounded-sm bg-white shadow-[5px_5px_0px_rgba(0,0,0,1)]
-        focus:outline-none
-      "
+                className="form-control m-0 block w-full resize-none rounded-sm border-[3px] border-black bg-white px-3 py-1.5 text-base font-normal shadow-[5px_5px_0px_rgba(0,0,0,1)] focus:outline-hidden"
                 rows={7}
                 placeholder="Your diary entry"
                 onChange={(e) => {
@@ -120,12 +120,12 @@ export const Modal = () => {
                 disabled={progress}
               ></textarea>
 
-              <div role="toolbar" className="flex justify-between items-center">
+              <div role="toolbar" className="flex items-center justify-between">
                 <div>
                   <button
                     aria-label="Attach a file to the entry"
                     onClick={() => uploadElement?.current?.click()}
-                    className="flex gap-2 items-center hover:text-lavender-blue-600 active:text-lavender-blue-400"
+                    className="hover:text-lavender-blue-600 active:text-lavender-blue-400 flex items-center gap-2"
                   >
                     <svg
                       width="20"
@@ -143,7 +143,7 @@ export const Modal = () => {
                         <path d="M8.36,26.92c-2,0-3.88-.78-5.29-2.19C.15,21.81.15,17.06,3.06,14.14L12.57,4.64c.39-.39,1.02-.39,1.41,0s.39,1.02,0,1.41L4.48,15.56c-2.14,2.14-2.14,5.62,0,7.76,1.04,1.04,2.41,1.61,3.88,1.61s2.84-.57,3.88-1.61l12.79-12.79c1.47-1.47,1.47-3.87,0-5.34-1.47-1.47-3.87-1.47-5.34,0l-12.45,12.45c-.73.73-.73,1.91,0,2.64.73.73,1.91.73,2.64,0l9.17-9.17c.39-.39,1.02-.39,1.41,0s.39,1.02,0,1.41l-9.17,9.17c-1.51,1.51-3.96,1.51-5.47,0-1.51-1.51-1.51-3.96,0-5.47L18.26,3.77c2.25-2.25,5.92-2.25,8.17,0s2.25,5.92,0,8.17l-12.79,12.79c-1.41,1.41-3.29,2.19-5.29,2.19Z" />
                       </g>
                     </svg>
-                    <span className="truncate max-w-48">
+                    <span className="max-w-48 truncate">
                       <small>
                         {file !== undefined ? file.name : "Attach file"}
                       </small>
@@ -161,16 +161,16 @@ export const Modal = () => {
 
                 {progress ? (
                   <div
-                    className="my-8 animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-indigo-600 rounded-full"
+                    className="my-8 inline-block h-6 w-6 animate-spin rounded-full border-[3px] border-current border-t-transparent text-indigo-600"
                     role="status"
                     aria-label="loading"
                   >
                     <span className="sr-only">Loading...</span>
                   </div>
                 ) : (
-                  <div className="flex my-4">
+                  <div className="my-4 flex">
                     <button
-                      className="py-1 px-8 hover:text-lavender-blue-600 active:text-lavender-blue-400"
+                      className="hover:text-lavender-blue-600 active:text-lavender-blue-400 px-8 py-1"
                       type="button"
                       onClick={() => setShowModal(false)}
                     >

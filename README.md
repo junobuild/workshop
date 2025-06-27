@@ -14,7 +14,7 @@ cd workshop
 npm ci
 ```
 
-## Workshop
+## 🧑‍🚀 Workshop
 
 We are developing a note-taking app, and the core functionality is already in place. However, we still need to integrate Juno, which we plan to implement during the workshop.
 
@@ -196,3 +196,21 @@ juno deploy
 ```
 
 Congratulations! Your dApp has been launched on chain 🎉.
+
+## ✨ Links & Resources
+
+- Looking to get started with Juno? Check out the [documentation](https://juno.build).
+- Have a look at [React](https://react.dev) for question regarding the templates.
+- Got questions, comments or feedback? [Join our discord](https://discord.gg/wHZ57Z2RAG) or [OpenChat](https://oc.app/community/vxgpi-nqaaa-aaaar-ar4lq-cai/?ref=xanzv-uaaaa-aaaaf-aneba-cai).
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command          | Action                                                      |
+| :--------------- | :---------------------------------------------------------- |
+| `npm install`    | Installs dependencies                                       |
+| `npm run dev`    | Starts frontend dev server at `localhost:5173`              |
+| `juno dev start` | Quickstart the local development emulator (requires Docker) |
+| `npm run build`  | Build your production site to `./dist/`                     |
+| `juno deploy`    | Deploy your project to a Satellite                          |

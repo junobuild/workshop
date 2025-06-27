@@ -1,4 +1,3 @@
-import { listDocs } from "@junobuild/core";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./Auth";
 import { Delete } from "./Delete";
@@ -35,7 +34,7 @@ export const Table = () => {
   }, [user]);
 
   return (
-    <div className="w-full max-w-2xl mt-8 dark:text-white" role="table">
+    <div className="mt-8 w-full max-w-2xl dark:text-white" role="table">
       <div role="row">
         <span role="columnheader" aria-sort="none">
           Entries
@@ -52,22 +51,22 @@ export const Table = () => {
           return (
             <div
               key={key}
-              className="flex items-center gap-2 px-3 mb-4 border-black dark:border-lavender-blue-500 border-[3px] rounded bg-white dark:bg-black dark:text-white transition-all shadow-[8px_8px_0px_rgba(0,0,0,1)] dark:shadow-[8px_8px_0px_#7888FF]"
+              className="dark:border-lavender-blue-500 mb-4 flex items-center gap-2 rounded-sm border-[3px] border-black bg-white px-3 shadow-[8px_8px_0px_rgba(0,0,0,1)] transition-all dark:bg-black dark:text-white dark:shadow-[8px_8px_0px_#7888FF]"
               role="row"
             >
               <span
                 role="cell"
                 aria-rowindex={index}
-                className="p-1 flex align-center min-w-max"
+                className="align-center flex min-w-max p-1"
               >
                 {index + 1} )
               </span>
-              <div role="cell" className="line-clamp-3 overflow-hidden grow">
+              <div role="cell" className="line-clamp-3 grow overflow-hidden">
                 {text}
               </div>
               <div
                 role="cell"
-                className="flex gap-2 justify-center align-middle"
+                className="flex justify-center gap-2 align-middle"
               >
                 {url !== undefined ? (
                   <a
