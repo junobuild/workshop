@@ -94,13 +94,13 @@ This template is a note-taking app, so it needs a `notes` collection. Create it 
 
 👉 [Go to Datastore](http://localhost:5866/datastore)
 
-### f. Create a Storage collection
+#### f. Create a Storage collection
 
 Likewise, it needs a collection named `images` to save assets. Create it in the Storage.
 
 👉 [Go to Storage](http://localhost:5866/storage)
 
-#### f. Start using the JavaScript library
+#### g. Start using the JavaScript library
 
 Initialize the Satellite for your app. The configuration variables are automatically injected via the plugins.
 
