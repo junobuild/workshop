@@ -22,14 +22,14 @@ By following the steps below and replacing the provided snippet, we will be able
 
 ---
 
-### Integration Steps
+### Frontend Integration Steps
 
-1. [Prerequisites](#prerequisites)
-2. [Initialization](#initialization)
-3. [Authentication](#authentication)
-4. [Storing Document](#storing-documents)
-5. [Listing Document](#listing-documents)
-6. [Uploading Files](#uploading-files)
+1. [Prerequisites](#1-prerequisites)
+2. [Initialization](#2-initialization)
+3. [Authentication](#3-authentication)
+4. [Storing Document](#4-storing-documents)
+5. [Listing Document](#5-listing-documents)
+6. [Uploading Files](#6-uploading-files)
 
 ---
 
@@ -205,6 +205,103 @@ await setDoc({
       ...(url !== undefined && { url }), // <--- We add this reference
     },
   },
+});
+```
+
+---
+
+### Serverless Functions Steps
+
+1. [Initialization](#1-init)
+2. [Build](#2-build)
+3. [Assertion](#3-assertion)
+4. [Hook](#4-hook)
+
+---
+
+#### 1. Init
+
+In a new terminal, run the command to scaffold the functions and select `JavaScript`.
+
+```bash
+juno functions eject
+```
+
+#### 2. Build
+
+To ensure everything works out, let's add some log and build the functions.
+
+Search for `assertSetDoc` and replace the default snippet with following:
+
+```javascript
+export const assertSetDoc = defineAssert({
+  collections: ["notes"],
+  assert: (context) => {
+    console.log("Hello");
+  }
+});
+```
+
+Then build the functions:
+
+```bash
+juno functions build
+```
+
+The local emulator should detect the change and automatically upgrade (re-deploy) the WASM container.
+
+Once applied, every time you record a note, a console log should appear in the emulator output.
+
+#### 3. Assertion
+
+Instead of a log, we can implement a custom assertion that should reject every document that contains the text "Hello".
+
+```javascript
+export const assertSetDoc = defineAssert({
+  collections: ["notes"],
+  assert: (context) => {
+    const data = decodeDocData(context.data.data.proposed.data);
+
+    if (data.text.toLowerCase().includes("hello")) {
+      throw new Error("The text must not include the word 'hello'");
+    }
+  }
+});
+```
+
+#### 4. Hook
+
+Hooks allow you to implement custom backend logic — a kind of post-processing that runs when data is created, updated, or deleted.
+
+Search for `onSetDoc` and replace the default snippet with this function that updates the content of the notes that is saved.
+
+```javascript
+export const onSetDoc = defineHook({
+  collections: ["notes"],
+  run: async (context) => {
+    // Decode the document's data (stored as a blob)
+    const data = decodeDocData(context.data.data.after.data);
+
+    // Update the document's data by enhancing the "hello" field
+    const updated = {
+      text: `${data.text} checked ✅`
+    };
+
+    // Encode the data back to blob format
+    const encoded = encodeDocData(updated);
+
+    // Save the updated document using the same caller, collection, and key
+    await setDocStore({
+      caller: context.caller,
+      collection: context.data.collection,
+      key: context.data.key,
+      doc: {
+        data: encoded,
+        description: context.data.data.after.description,
+        version: context.data.data.after.version
+      }
+    });
+  }
 });
 ```
 
