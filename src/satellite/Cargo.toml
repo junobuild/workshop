@@ -7,14 +7,14 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-candid = "0.10.2"
-ic-cdk = "0.12.1"
-ic-cdk-macros = "0.8.1"
-serde = "1.0.190"
+candid = "0.10.13"
+ic-cdk = "0.17.1"
+ic-cdk-macros = "0.17.1"
+serde = "1.0.217"
 serde_cbor = "0.11.2"
 ethers-core = "2.0.14"
 k256 = "0.13.3"
-junobuild-satellite = "0.0.17"
-junobuild-macros = "0.0.2"
-junobuild-utils = "0.0.1"
+junobuild-satellite = "0.2.0"
+junobuild-macros = "0.1.0"
+junobuild-utils = "0.1.0"
 
