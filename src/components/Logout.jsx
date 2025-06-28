@@ -3,6 +3,7 @@ import { signOut } from "@junobuild/core";
 export const Logout = () => {
   return (
     <button
+      onClick={signOut}
       type="button"
       onClick={signOut}
       className="hover:text-lavender-blue-500 active:text-lavender-blue-400 mt-24 flex items-center gap-2 dark:text-white"

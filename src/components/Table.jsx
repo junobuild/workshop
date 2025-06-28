@@ -1,3 +1,4 @@
+import { listDocs } from "@junobuild/core";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./Auth";
 import { Delete } from "./Delete";
@@ -15,11 +16,9 @@ export const Table = () => {
   }, []);
 
   const list = async () => {
-    // TODO: STEP_LIST_DOCS
-    const items = [];
-    // const { items } = await listDocs({
-    //   collection: "notes",
-    // });
+    const { items } = await listDocs({
+      collection: "notes",
+    });
 
     setItems(items);
   };

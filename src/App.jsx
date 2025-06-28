@@ -1,14 +1,16 @@
+import { initSatellite } from "@junobuild/core";
+import { useEffect } from "react";
 import { Auth } from "./components/Auth";
 import { Background } from "./components/Background";
 import { Footer } from "./components/Footer";
 import { Modal } from "./components/Modal";
 import { Table } from "./components/Table";
+import { Wallet } from "./components/Wallet";
 
 function App() {
-  // TODO: STEP_INITIALIZATION
-  // useEffect(() => {
-  //   (async () => await initSatellite())();
-  // }, []);
+  useEffect(() => {
+    (async () => await initSatellite())();
+  }, []);
 
   return (
     <>
@@ -31,6 +33,8 @@ function App() {
           </p>
 
           <Auth>
+            <Wallet />
+
             <Table />
 
             <Modal />

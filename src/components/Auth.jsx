@@ -1,3 +1,4 @@
+import { authSubscribe } from "@junobuild/core";
 import PropTypes from "prop-types";
 import { createContext, useEffect, useState } from "react";
 import { Login } from "./Login";
@@ -9,9 +10,7 @@ export const Auth = ({ children }) => {
   const [user, setUser] = useState(undefined);
 
   useEffect(() => {
-    // TODO: STEP_AUTH_SUBSCRIBE
-    const sub = () => undefined;
-    // const sub = authSubscribe((user) => setUser(user));
+    const sub = authSubscribe((user) => setUser(user));
 
     return () => sub();
   }, []);

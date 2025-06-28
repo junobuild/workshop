@@ -1,3 +1,4 @@
+import { setDoc, uploadFile } from "@junobuild/core";
 import { nanoid } from "nanoid";
 import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "./Auth";
@@ -37,32 +38,27 @@ export const Modal = () => {
       if (file !== undefined) {
         const filename = `${user.key}-${file.name}`;
 
-        // TODO: STEP_UPLOAD_FILE
-        const downloadUrl = undefined;
-        // const { downloadUrl } = await uploadFile({
-        //   collection: "images",
-        //   data: file,
-        //   filename,
-        // });
+        const { downloadUrl } = await uploadFile({
+          collection: "images",
+          data: file,
+          filename,
+        });
 
         url = downloadUrl;
       }
 
       const key = nanoid();
 
-      // TODO: STEP_SET_DOC
-      // await setDoc({
-      //   collection: "notes",
-      //   doc: {
-      //     key,
-      //     data: {
-      //       text: inputText,
-      //     },
-      //   },
-      // });
-
-      // TODO: STEP_ADD_REFERENCE
-      // ...(url !== undefined && { url }),
+      await setDoc({
+        collection: "notes",
+        doc: {
+          key,
+          data: {
+            text: inputText,
+            ...(url !== undefined && { url }),
+          },
+        },
+      });
 
       setShowModal(false);
 
