@@ -15,11 +15,11 @@ function App() {
   return (
     <>
       <div className="relative isolate min-h-[100dvh]">
-        <main className="mx-auto max-w-screen-2xl py-16 px-8 md:px-24 tall:min-h-[calc(100dvh-128px)]">
-          <h1 className="dark:text-white text-5xl md:text-6xl font-bold tracking-tight md:pt-24">
+        <main className="mx-auto max-w-(--breakpoint-2xl) px-8 py-16 md:px-24 [@media(min-height:800px)]:min-h-[calc(100dvh-128px)]">
+          <h1 className="text-5xl font-bold tracking-tight md:pt-24 md:text-6xl dark:text-white">
             Example App
           </h1>
-          <p className="dark:text-white py-4 md:max-w-lg">
+          <p className="py-4 md:max-w-lg dark:text-white">
             Explore this demo app built with React, Tailwind, and{" "}
             <a
               href="https://juno.build"
